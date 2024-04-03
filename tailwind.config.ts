@@ -16,6 +16,9 @@ const config: Config = {
       fontFamily: {
         pacifico: ['var(--font-pacifico)'],
       },
+      screens: {
+        'sm': {'max': '639px'},
+      },
     },
   },
   plugins: [],

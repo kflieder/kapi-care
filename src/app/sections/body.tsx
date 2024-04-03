@@ -7,12 +7,12 @@ import ImgAndQuote from '../components/ImgAndQuote'
 
 export default function Body() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 justify-center">
+    <div className="grid grid-cols-2 sm:grid-cols-1 justify-center bg-gray-200 h-screen">
       <div className="hidden md:block">
         <ImgAndQuote />
       </div>
 
-      <div className="flex flex-col justify-center items-center bg-gray-200">
+      <div className="flex flex-col justify-center items-center lg:mt-0 sm:mt-20">
         <RequestSitter />
         <ApplyToSit />
       </div>
