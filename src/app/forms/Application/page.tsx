@@ -30,14 +30,7 @@ export default function Application() {
 
   const form = useForm<z.infer<typeof applicationSchema>>({
     resolver: zodResolver(applicationSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      password: '',
-      phone: '',
-      region: '',
-      experience: '',
-    }
+    defaultValues: employee
   })
 
   const newEmployee = async () => {
@@ -51,6 +44,7 @@ export default function Application() {
 
   function onSubmit(values: z.infer<typeof applicationSchema>) {
     console.log(values)
+    setEmployee(values)
     newEmployee()
   }
 

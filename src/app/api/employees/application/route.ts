@@ -8,7 +8,7 @@ dbConnect();
 export async function POST(request: NextRequest) {
     try {
         const reqBody = await request.json();
-        const { email, password } = reqBody;
+        const { name, email, password, phone, region, experience } = reqBody;
         const employee = await Employee.findOne({email});
         if(employee){
             return NextResponse.json({error: 'Employee already exists'}, {status: 400});
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
 
         const salt = await bcryptjs.genSalt(10);
         const hashedPassword = await bcryptjs.hash(password, salt);
-        const newEmployee = new Employee({ email, password: hashedPassword });
+        const newEmployee = new Employee({ name, email, password: hashedPassword, phone, region, experience});
         const savedEmployee = await newEmployee.save();
 
         return NextResponse.json({message: 'Employee created successfully'}, {status: 201});
