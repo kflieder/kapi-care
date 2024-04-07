@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import axios from 'axios';
 
 const applicationSchema = z.object({
   name: z.string(),
@@ -18,6 +19,15 @@ const applicationSchema = z.object({
 
 
 export default function Application() {
+  const [employee, setEmployee] = React.useState({
+    name: '',
+    email: '',
+    password: '',
+    phone: '',
+    region: '',
+    experience: '',
+  })
+
   const form = useForm<z.infer<typeof applicationSchema>>({
     resolver: zodResolver(applicationSchema),
     defaultValues: {
@@ -30,8 +40,18 @@ export default function Application() {
     }
   })
 
+  const newEmlpoyee = async () => {
+    try {
+      const response = await axios.post('/api/employees/application', employee);
+      console.log(response.data)
+    } catch (error: any) {
+      console.log(error)
+    }
+  }
+
   function onSubmit(values: z.infer<typeof applicationSchema>) {
     console.log(values)
+    newEmlpoyee()
   }
 
   return (
