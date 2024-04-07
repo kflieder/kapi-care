@@ -1,13 +1,13 @@
 import React from 'react'
-import RequestSitter from '../components/RequestSitter'
-import ApplyToSit from '../components/ApplyToSit'
+import RequestSitter from '../myComponents/RequestSitter'
+import ApplyToSit from '../myComponents/ApplyToSit'
 import Aboutus from './aboutus'
 import Safety from './safety'
-import ImgAndQuote from '../components/ImgAndQuote'
+import ImgAndQuote from '../myComponents/ImgAndQuote'
 
 export default function Body() {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-1 justify-center bg-gray-200 h-screen">
+    <div className="grid md:grid-cols-2 sm:grid-cols-1 justify-center bg-gray-200 h-screen">
       <div className="hidden md:block">
         <ImgAndQuote />
       </div>
