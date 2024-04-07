@@ -40,7 +40,7 @@ export default function Application() {
     }
   })
 
-  const newEmlpoyee = async () => {
+  const newEmployee = async () => {
     try {
       const response = await axios.post('/api/employees/application', employee);
       console.log(response.data)
@@ -51,7 +51,7 @@ export default function Application() {
 
   function onSubmit(values: z.infer<typeof applicationSchema>) {
     console.log(values)
-    newEmlpoyee()
+    newEmployee()
   }
 
   return (
