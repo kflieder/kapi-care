@@ -2,21 +2,12 @@
 import React from 'react';
 import axios from 'axios';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import LogoutBtn from '@/app/myComponents/LogoutBtn';
 
 
 export default function ProfilePage() {
-  const router = useRouter();
   const [user, setUser] = React.useState("nothing");
-  const logout = async () => {
-    try {
-      await axios.get('/api/users/logout')
-      router.push('/login');
-      
-    } catch (error: any) {
-      console.log(error.message);
-    }
-  }
+
 
   const getUserDetails = async () => {
     const res = await axios.get('/api/users/me');
@@ -29,7 +20,7 @@ export default function ProfilePage() {
     <div>
     <div>Profile Page</div>
     <h2>{user === "nothing" ? "nothing" : <Link href={`/profile/${user}`}>{user}</Link>}</h2>
-    <button onClick={logout}>Log Out</button>
+    <LogoutBtn />
     <button onClick={getUserDetails}>Get User Details</button>
     </div>
   )

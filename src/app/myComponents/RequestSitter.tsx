@@ -26,7 +26,7 @@ export default function RequestSitter() {
           <SelectContent>
             {
               regions.regions.map((region) => (
-                <SelectItem value={region.name}>{region.name}</SelectItem>
+                <SelectItem key={region.name} value={region.name}>{region.name}</SelectItem>
               ))
             }
           </SelectContent>

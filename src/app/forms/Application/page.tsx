@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import axios from 'axios';
+import { Textarea } from '@/components/ui/textarea';
 
 const applicationSchema = z.object({
   name: z.string(),
@@ -125,7 +126,7 @@ export default function Application() {
               <FormItem>
                 <FormLabel>Experience:</FormLabel>
                 <FormControl>
-                  <Input placeholder="Experience" {...field} />
+                  <Textarea placeholder="Experience" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
